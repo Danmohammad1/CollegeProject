@@ -1,0 +1,115 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'Js/signup.js' %}">-->
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css' %}">
+    <title>Login</title>
+</head>
+  <body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong>  {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container">
+      <div class="add-box">
+        <h1>Guard Hiring Form</h1>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+          <div class="form-container">
+                <div class="form-control">
+                  <label for="f_name">First Name</label>
+                  <input
+
+                    id="f_name"
+                    name="fname"
+                    placeholder="First Name" />
+                </div>
+
+                <div class="form-control">
+                  <label for="l_name">Last Name</label>
+                  <input
+
+                    id="l_name"
+                    name="lname"
+                    placeholder="Last Name" />
+                </div>
+                <div class="form-control">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Email" />
+                </div>
+
+                <div class="form-control">
+                    <label for="">Shift Requirement</label>
+                    <select name="shift" id="">
+                        <option value="">select</option>
+                        <option value="night">Night Shift</option>
+                        <option value="day">Day Shift</option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label for="number">Mobile No.</label>
+                    <input
+                      type="text"
+                      id="number"
+                      name="number"
+                      placeholder="Mobile Number" />
+                </div>
+
+                <div>
+                      <label for="male">male</label>
+                      <input type="radio" id="male" name="gender" value="Male"/>
+                      <label for="female">Female</label>
+                              <input
+                                type="radio"
+                                id="female"
+                                name="gender"
+                                value="Female"/>
+
+                                <label for="other">Other</label>
+                              <input
+                                type="radio"
+                                id="other"
+                                name="gender"
+                                value="Other"/>
+                </div>
+
+                <div class="form-control">
+                    <label for="guard">Guard Requirement</label>
+                    <input
+                      type="number"
+                      id="guard"
+                      name="guard"
+                      placeholder="Guard Number" />
+
+                </div>
+
+                <div class="form-control" >
+                          <h1 id="code" name="cap"></h1>
+                          <label >Enter the Captcha</label>
+                          <input name="captcha" id="captcha" placeholder="captcha" onchange="validate_captcha()" />
+                          <p id="error" ></p>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Submit</button>
+                </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <script src="/static/Js/signup.js"></script>
+  </body>
+</html>

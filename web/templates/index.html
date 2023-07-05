@@ -1,0 +1,25 @@
+{% extends 'basic.html' %}
+{% load static%}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+{% endblock %}
+
+
+{% block title %}Home page {% endblock %}
+
+
+
+<!--this is the Body Containt-->
+{% block body %}
+<div class="container">
+    <div class="sub-container">
+        <p><span class="first">Get Best Security Gaurds</span><br> <span class="big">COMPANY</span><br> <span class="lbig">IN INDIA</span><br><span class="last">United Security Services</span></p>
+        <a class="btn btn-primary btn-sm" href="{% url 'hiring' %}" role="button">Get Hire</a>
+    </div>
+</div>
+<!-- Carousel wrapper -->
+
+<!-- Carousel wrapper -->
+{% endblock %}

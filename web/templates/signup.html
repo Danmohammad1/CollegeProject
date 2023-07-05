@@ -1,0 +1,55 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style4.css' %}">
+    <title>Login</title>
+</head>
+<body>
+<div>
+       {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong>  {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+        {% endfor %}
+</div>
+
+    <div class="center">
+            <h1>Sign up</h1>
+            <p style="text-align:center; color: red;">{{ error }}</p>
+            <form action="" method="POST" onsubmit="return(validate());">
+                {% csrf_token %}
+                <div class="txt_field">
+                    <input type="text" name="uname" id="user" required>
+                    <span></span>
+                    <label for="user">Username</label>
+                </div>
+                 <div class="txt_field">
+                    <input type="email" name="Email" id="umail" required>
+                    <span></span>
+                    <label for="umail">Email</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="pwd" id="pass" required>
+                    <span></span>
+                    <label for="pass">Password</label>
+                </div>
+<!--                 <div class="txt_field">-->
+<!--                     <input type="text" name="uname" id="captcha" required>-->
+<!--                     <input type="image" src="https://cdn.icon-icons.com/icons2/2621/PNG/512/gui_refresh_icon_157047.png" width="40" onclick="mycap()">-->
+<!--                     <span></span>-->
+<!--                     <label for="captcha">Verfication code</label>-->
+<!--                </div>-->
+                <input type="submit" value="Sign Up">
+                <div class="signup_link">
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
+            </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+    <title>Forget</title>
+
+</head>
+
+<body>
+<div>
+        {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong>  {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+</div>
+<div class="maindiv">
+    <div class="center">
+            <h1>Change Password</h1>
+            <p style="text-align:center; color: red;">{{ error }}</p>
+            <form name="loginform" action="" method="POST" onclick="return(submitalert());">
+                {% csrf_token %}
+                <div class="txt_field">
+                    <input type="text" name="uname" id="user" required>
+                    <span></span>
+                    <label for="user">Username</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="cpwd" id="cpwd" required>
+                    <span></span>
+                    <label for="pwd">Current Password</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="npwd" id="pwd" required>
+                    <span></span>
+                    <label for="pwd">New Password</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="conpwd" id="conpwd" required>
+                    <span></span>
+                    <label for="pwd">Confirm Password</label>
+                </div>
+                <input type="submit" value="Submit" onclick="login()">
+                <div class="signup_link">
+                    Not a member? <a href="{% url 'login' %}">login</a>
+                </div>
+            </form>
+    </div>
+</div>
+</body>
+</html>
